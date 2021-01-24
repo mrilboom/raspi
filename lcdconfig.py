@@ -87,6 +87,7 @@ class RaspberryPi:
         return 0
 
     def module_exit(self):
+        #此处貌似没有做到exit的效果
         logging.debug("spi end")
         if self.SPI!=None :
             self.SPI.close()
