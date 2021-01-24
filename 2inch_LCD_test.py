@@ -32,7 +32,7 @@ try:
     draw = ImageDraw.Draw(image1)
 
     logging.info("draw point")
-
+    #画基本的图线 ，微雪的相关logo
     draw.rectangle((5,10,6,11), fill = "BLACK")
     draw.rectangle((5,25,7,27), fill = "BLACK")
     draw.rectangle((5,40,8,43), fill = "BLACK")
@@ -64,7 +64,9 @@ try:
     draw.text((5, 160), '1234567890', fill = "GREEN",font=Font3)
     text= u"微雪电子"
     draw.text((5, 200),text, fill = "BLUE",font=Font3)
+
     image1=image1.rotate(180)
+    #show image,PIL object disp
     disp.ShowImage(image1)
     time.sleep(3)
     logging.info("show image")
@@ -72,6 +74,7 @@ try:
     image = image.rotate(180)
     disp.ShowImage(image)
     time.sleep(3)
+    #此处图像显示之后模块无法正常退出，debug输出没问题，接线错误？
     disp.module_exit()
     logging.info("quit:")
 except IOError as e:
