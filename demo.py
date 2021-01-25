@@ -34,6 +34,7 @@ try:
             stream.seek(seq)
             image = Image.open(stream)
             disp.ShowImage(image)
+            time.sleep(0.1)
             seq = seq + 1
 except IOError as e:
     disp.module_exit()
