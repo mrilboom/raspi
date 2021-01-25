@@ -30,9 +30,9 @@ try:
         logging.info("show image")
         while True:
             for frame in camera.capture_continuous(stream, 'jpeg',use_video_port=True):
-                image = Image.open(frame)
+                # image = Image.open(frame)
+                image = frame.array
                 disp.ShowImage(image)
-                logging.info("okay")
 except IOError as e:
     disp.module_exit()
     logging.info(e)
