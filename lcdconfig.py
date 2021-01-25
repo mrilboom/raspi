@@ -97,8 +97,9 @@ class RaspberryPi:
         self.GPIO.output(self.DC_PIN, 0)        
         self._pwm.stop()
         time.sleep(0.001)
-        self.GPIO.output(self.BL_PIN, 1)
-        #self.GPIO.cleanup()
+        #背光为低电平时关闭
+        self.GPIO.output(self.BL_PIN, 0)
+        self.GPIO.cleanup()
 
 
 '''
