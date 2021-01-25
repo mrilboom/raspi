@@ -20,10 +20,11 @@ try:
     disp.clear()
     #创建流
 
-    stream = io.BytesIO()
+    
     with picamera.PiCamera() as camera:
         camera.resolution = (240, 320)
-        camera.framerate = 15
+        camera.framerate = 30
+        rawCapture = PiRGBArray(camera)
         camera.start_preview()
         # 摄像头预热
         time.sleep(1)
