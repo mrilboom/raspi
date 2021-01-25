@@ -29,9 +29,12 @@ try:
         time.sleep(2)
         camera.capture(stream, 'jpeg')
         logging.info("show image")
+        seq = 0
         while True:
+            stream.seek(seq)
             image = Image.open(stream)
             disp.ShowImage(image)
+            seq = seq + 1
 except IOError as e:
     disp.module_exit()
     logging.info(e)
