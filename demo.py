@@ -5,6 +5,7 @@ from PIL import Image
 import LCD_2inch
 import spidev as SPI
 import logging
+from picamera.array import PiRGBArray
 #管角定义
 RST = 27
 DC = 25
@@ -24,7 +25,7 @@ try:
         camera.resolution = (240, 320)
         camera.framerate = 30
         # 摄像头预热
-        time.sleep(2)
+        time.sleep(1)
         logging.info("show image")
         while True:
             stream = io.BytesIO()
