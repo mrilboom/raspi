@@ -20,23 +20,17 @@ try:
     disp.clear()
     #创建流
 
-    # stream = io.BytesIO()
     with picamera.PiCamera() as camera:
         camera.resolution = (240, 320)
-        camera.framerate = 15
-        camera.start_preview()
+        camera.framerate = 30
         # 摄像头预热
         time.sleep(2)
         logging.info("show image")
-        # seq = 0
         while True:
-            camera.capture("test.jpg", 'jpeg',use_video_port=True)
-            # stream.seek(seq)
-            image = Image.open("./test.jpg")
+            stream = io.BytesIO()
+            camera.capture(stream, 'jpeg',use_video_port=True)
+            image = Image.open(stream)
             disp.ShowImage(image)
-            logging.info("okay")
-            time.sleep(0.05)
-            # seq = seq + 1
 except IOError as e:
     disp.module_exit()
     logging.info(e)
