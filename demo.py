@@ -5,6 +5,7 @@ from PIL import Image
 import LCD_2inch
 import spidev as SPI
 import logging
+from picamera.array import PiRGBArray
 #管角定义
 RST = 27
 DC = 25
@@ -24,13 +25,13 @@ try:
     with picamera.PiCamera() as camera:
         camera.resolution = (240, 320)
         camera.framerate = 30
-        rawCapture = PiRGBArray(camera)
+        rawCapture = PiRGBArray(camera,size=resolution)
         camera.start_preview()
         # 摄像头预热
         time.sleep(1)
         logging.info("show image")
         while True:
-            for frame in camera.capture_continuous(stream, 'jpeg',use_video_port=True):
+            for frame in camera.capture_continuous(rawCapture 'jpeg',use_video_port=True):
                 # image = Image.open(frame)
                 image = frame.array
                 disp.ShowImage(image)
