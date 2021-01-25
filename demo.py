@@ -27,14 +27,14 @@ try:
         camera.start_preview()
         # 摄像头预热
         time.sleep(2)
-        camera.capture(stream, 'jpeg')
         logging.info("show image")
-        seq = 0
+        # seq = 0
         while True:
-            stream.seek(seq)
+            # stream.seek(seq)
+            camera.capture(stream, 'jpeg',use_video_port=True)
             image = Image.open(stream)
             disp.ShowImage(image)
-            seq = seq + 1
+            # seq = seq + 1
 except IOError as e:
     disp.module_exit()
     logging.info(e)
