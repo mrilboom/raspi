@@ -1,4 +1,4 @@
-调试屏幕中，暂且调用微雪电子的例程，熟悉该屏幕的操作
+调试屏幕中，通过屏幕获取pi camera视频流输出
 
 now:2 Inch LCD screen
 future: ...
