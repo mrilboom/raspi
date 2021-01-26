@@ -13,7 +13,7 @@ IN3 = 33
 IN4 = 35
 
 
-def init()：
+def init():
     GPIO.setup(IN1,GPIO.OUT)
     GPIO.setup(IN2,GPIO.OUT)
     GPIO.setup(IN3,GPIO.OUT)
@@ -24,14 +24,14 @@ L298N模块IN1、IN2和IN1、IN2分别对应两个马达，输出IN1>IN2为前�
 pwm调速暂未启用
 树莓派和l298n必须公地，否则无法启动！
 '''
-def forward()：
+def forward():
     GPIO.output(IN1,GPIO.HIGH)
     GPIO.output(IN2,GPIO.LOW)
     GPIO.output(IN3,GPIO.HIGH)
     GPIO.output(IN4,GPIO.LOW)
 
 
-def backward()：
+def backward():
     GPIO.output(IN1,GPIO.LOW)
     GPIO.output(IN2,GPIO.HIGH)
     GPIO.output(IN3,GPIO.LOW)
