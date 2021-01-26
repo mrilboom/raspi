@@ -22,7 +22,7 @@ def init():
 '''
 L298N模块IN1、IN2和IN1、IN2分别对应两个马达，输出IN1>IN2为前进，IN1<IN2为后退
 pwm调速暂未启用
-树莓派和l298n必须公地，否则无法启动！
+树莓派和l298n必须共地，否则无法启动！
 '''
 def forward():
     GPIO.output(IN1,GPIO.HIGH)
