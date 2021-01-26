@@ -1,6 +1,6 @@
 import RPi.GPIO as GPIO
 import time
-import keyboard
+
 
 #编码方式
 GPIO.setmode(GPIO.BOARD)
@@ -52,22 +52,17 @@ def right():
     GPIO.output(IN4,False)
 
 try:
+
     init()
     while True:
-        if keyboard.is_pressed('w'):
-            print('Forward')
-            forward()
-        elif keyboard.is_pressed('s'):
-            print('Backward')
-            backward()
-        elif keyboard.is_pressed('a'):
-            print('Left')
-            left()
-        elif keyboard.is_pressed('d'):
-            print('Right')
-            right()
-        elif keyboard.is_pressed('q'):
-            print('Quit!')
+        forward()
+        time.sleep(3)
+        backward()
+        time.sleep(3)
+        left()
+        time.sleep(3)
+        right()
+        time.sleep(3)
 except:
     GPIO.cleanup()
     print("error...")
